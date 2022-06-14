@@ -2,24 +2,18 @@
 // const {isMainThread,Worker} = require('worker_threads');
 // const CPUs = require('os').cpus()
 const http = require('http');
+
 require('dotenv').config();
-const { mongoConnect } = require('./services/mongo');
+
 const app = require('./app');
+const { mongoConnect } = require('./services/mongo');
 const { loadPlanetsData } = require('./models/planets.model');
 const underScore = require('./utils/underscore');
 const {loadLaunchData } = require('./models/launches.model');
-const server = http.createServer(app);//app is a function that returns an http server
+
 const PORT = process.env.PORT || 8000; // if PORT is not defined, use 8000
-const launch = {
-    flightNumber: 100, //flight_number
-    mission: 'Kepler Fathpour',//name
-    rocket: 'Explorer IS1',//rocket.name
-    launchDate: new Date('December 27,2030'),//date_local
-    target: "Kepler-442 b",//not applicable
-    customers: ['ZTM', 'NASA'],//payloads.customers for each payload
-    upcoming: true, //upcomig
-    success: true//success
-}
+
+const server = http.createServer(app);//app is a function that returns an http server
 
 async function startServer() {
     await mongoConnect();
