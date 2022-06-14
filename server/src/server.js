@@ -9,7 +9,7 @@ const app = require('./app');
 const { mongoConnect } = require('./services/mongo');
 const { loadPlanetsData } = require('./models/planets.model');
 const underScore = require('./utils/underscore');
-const {loadLaunchData } = require('./models/launches.model');
+const { loadLaunchData } = require('./models/launches.model');
 
 const PORT = process.env.PORT || 8000; // if PORT is not defined, use 8000
 
