@@ -5,10 +5,10 @@
   "main": "src/server.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "test-watch": "jest --watchAll",
+    "test-watch": "jest --watch",
     "watch": "nodemon src/server.js",
     "start": "node src/server.js",
-    "tes": "node src/velcon.js"
+    "cluster": "pm2 start src/server.js -i max"
   },
   "author": "",
   "license": "ISC",
@@ -22,8 +22,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "mongoose": "^6.2.4",
-    "morgan": "^1.10.0",
-    "planet-project2": "file:.."
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",
